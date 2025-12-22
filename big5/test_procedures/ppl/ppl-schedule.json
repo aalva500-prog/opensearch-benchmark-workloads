@@ -159,6 +159,7 @@
   "target-throughput": {{ ppl_query_string_on_message_target_throughput or target_throughput | default(2) | tojson }},
   "clients": {{ ppl_query_string_on_message_clients or search_clients | default(1) }}
 },
+{% if calcite_enabled | default(false) %}
 {
   "operation": "ppl-range-auto-date-histo-with-metrics",
   "warmup-iterations": {{ ppl_range_auto_date_histo_with_metrics_warmup_iterations or warmup_iterations | default(200) | tojson }},
@@ -166,6 +167,7 @@
   "target-throughput": {{ ppl_range_auto_date_histo_with_metrics_target_throughput or target_throughput | default(2) | tojson }},
   "clients": {{ ppl_range_auto_date_histo_with_metrics_clients or search_clients | default(1) }}
 },
+{% endif %}
 {
   "operation": "ppl-range-auto-date-histo",
   "warmup-iterations": {{ ppl_range_auto_date_histo_warmup_iterations or warmup_iterations | default(200) | tojson }},
